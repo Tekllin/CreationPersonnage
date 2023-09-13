@@ -1,0 +1,48 @@
+﻿<ul class="list-classes">
+	@foreach (var classe in Classes)
+	{
+		<li class="list-classe">
+			<div class="img-classe">
+				<a href="/creation/@classe.Nom">
+					<img class="img-classe" src="@classe.ImageUrl">
+				</a>
+			</div>
+			<div>
+				<a href="#">
+					<h4 class="nom-classe">@classe.Nom</h4>
+				</a>
+			</div>
+		</li>
+	}
+</ul>
+
+@code {
+
+	private static List<Classe> Classes = new List<Classe>
+	{
+		new Classe
+		{
+			ImageUrl = "https://www.gamosaurus.com/wp-content/uploads/dofus/sacrieur/icone-sacri-feu.png",
+			Nom = "Sacrieur",
+			
+		},
+		new Classe
+		{
+			ImageUrl = "https://www.gamosaurus.com/wp-content/uploads/dofus/eniripsa/icone-eni-eau.png",
+			Nom = "Eniripsa",
+			
+		},
+		new Classe
+		{
+			ImageUrl = "https://www.gamosaurus.com/wp-content/uploads/dofus/steamer/icone-steam-air.png",
+			Nom = "Steamer",
+			
+		},
+		new Classe
+		{
+			ImageUrl = "https://www.gamosaurus.com/wp-content/uploads/dofus/eliotrope/icone-elio-eau.png",
+			Nom = "Eliotrope",
+		}
+	};
+
+}

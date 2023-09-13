@@ -1,0 +1,24 @@
+﻿.list-classes {
+    width: 65vw;
+    list-style-type : none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.list-classe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.img-classe {
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 15vw;
+}
+a {
+    text-decoration: none;
+}
+.nom-classe {
+    color: black;
+}
