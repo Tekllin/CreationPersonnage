@@ -1,8 +1,8 @@
 ﻿@page "/creation/{ClassName}"
 
-<h3>Creation @ClassName</h3>
+<CreationClasse ClassName="@ClassName" />
 
 @code {
 	[Parameter]
-	public string ClassName { get; set; }
+	public string ClassName { get; set; } = "";
 }

@@ -1,9 +1,11 @@
-﻿<ul class="list-classes">
+﻿@inject HttpClient Http
+<ul class="list-classes">
+
 	@foreach (var classe in Classes)
 	{
 		<li class="list-classe">
 			<div class="img-classe">
-				<a href="/creation/@classe.Nom">
+				<a href="creation/@classe.Nom">
 					<img class="img-classe" src="@classe.ImageUrl">
 				</a>
 			</div>
@@ -17,32 +19,12 @@
 </ul>
 
 @code {
+	private static List<Classe> Classes = new List<Classe>();
 
-	private static List<Classe> Classes = new List<Classe>
+	protected override async Task OnInitializedAsync()
 	{
-		new Classe
-		{
-			ImageUrl = "https://www.gamosaurus.com/wp-content/uploads/dofus/sacrieur/icone-sacri-feu.png",
-			Nom = "Sacrieur",
-			
-		},
-		new Classe
-		{
-			ImageUrl = "https://www.gamosaurus.com/wp-content/uploads/dofus/eniripsa/icone-eni-eau.png",
-			Nom = "Eniripsa",
-			
-		},
-		new Classe
-		{
-			ImageUrl = "https://www.gamosaurus.com/wp-content/uploads/dofus/steamer/icone-steam-air.png",
-			Nom = "Steamer",
-			
-		},
-		new Classe
-		{
-			ImageUrl = "https://www.gamosaurus.com/wp-content/uploads/dofus/eliotrope/icone-elio-eau.png",
-			Nom = "Eliotrope",
-		}
-	};
-
+		var result = await Http.GetFromJsonAsync<List<Classe>>("api/Classe");
+		if (result != null)
+			Classes = result;
+	}
 }

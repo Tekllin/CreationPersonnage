@@ -1,0 +1,23 @@
+﻿.body {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5vh;
+}
+.genre {
+    width: 150px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.img-classe {
+    width: 20vw;
+}
+.select_genre {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 30%;
+}

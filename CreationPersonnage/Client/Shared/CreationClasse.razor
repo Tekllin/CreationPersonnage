@@ -1,0 +1,34 @@
+﻿@inject HttpClient Http
+
+<h3>Creation @ClassName</h3>
+
+@foreach (var classe in Classes)
+{
+	if (ClassName == classe.Nom )
+	{
+		<div class="body">
+
+			<img class="img-classe" src="@classe.ImageUrl" />
+			<div class="select_genre">
+			<img class="genre" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Male_symbol_%28fixed_width%29.svg/1200px-Male_symbol_%28fixed_width%29.svg.png" />
+			<img class="genre" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Venus_symbol_%28fixed_width%29.svg/langfr-1024px-Venus_symbol_%28fixed_width%29.svg.png" />
+			</div>
+		</div>
+	}
+}
+
+@code {
+
+	private static List<Classe> Classes = new List<Classe>();
+
+	protected override async Task OnInitializedAsync()
+	{
+		var result = await Http.GetFromJsonAsync<List<Classe>>("api/Classe");
+		if (result != null)
+			Classes = result;
+	}
+}
+@code {
+	[Parameter]
+	public string ClassName { get; set; }
+}
